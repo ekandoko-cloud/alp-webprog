@@ -317,7 +317,7 @@ $suppliers_list = $conn->query("SELECT * FROM suppliers");
                         <tbody class="divide-y">
                         <?php while ($row = $parts->fetch_assoc()): ?>
                             <tr class="hover:bg-slate-50">
-                                <td class="p-4"><img src="<?= $row['image_url'] ?? 'https://via.placeholder.com/50' ?>" class="w-12 h-12 object-cover rounded border"></td>
+                                <td class="p-4"><a href='edit_parts.php?id=<?= $row['part_id'] ?>'><img src="<?= $row['image_url'] ?? 'https://via.placeholder.com/50' ?></a>
                                 <td class="p-4 font-bold text-slate-800"><?= $row['name'] ?><br><span class="text-xs text-gray-400 font-normal"><?= $row['sku'] ?></span></td>
                                 <td class="p-4 text-xs"><?= $row['category_name'] ?> <br> <?= $row['unit'] ?></td>
                                 <td class="p-4"><?= $row['stock_qty'] ?> / <?= $row['min_stock'] ?></td>
@@ -339,7 +339,7 @@ $suppliers_list = $conn->query("SELECT * FROM suppliers");
                     <?php $parts->data_seek(0); while ($row = $parts->fetch_assoc()): ?>
                         <div class="bg-white border p-4 rounded-lg shadow-sm">
                             <div class="flex items-center gap-4">
-                                <img src="<?= $row['image_url'] ?? 'https://via.placeholder.com/50' ?>" class="w-16 h-16 object-cover rounded">
+                                <img src="<?= $row['image_url'] ?? 'https://via.placeholder.com/50' ?>
                                 <div>
                                     <h3 class="font-bold text-slate-800"><?= $row['name'] ?></h3>
                                     <p class="text-xs text-gray-500"><?= $row['sku'] ?></p>
@@ -459,14 +459,12 @@ $suppliers_list = $conn->query("SELECT * FROM suppliers");
 </div>
 
 <footer class="bg-[#1a1a2e] text-white mt-auto py-10 px-6">
-    <div class="max-w-6xl mx-auto flex flex-col md:flex-row justify-between gap-6">
-        <div>
+        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
             <p class="font-bold text-lg">IndustrialHub</p>
-            <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang.</p>
+            <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
         </div>
-        <p class="text-sm text-gray-500">© 2026 IndustrialHub.</p>
-    </div>
-</footer>
+    </footer>
 
 <script src="main.js"></script>
 </body>

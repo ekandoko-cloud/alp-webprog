@@ -222,19 +222,12 @@ $email = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '') : ''
 </main>
 
 <footer class="bg-[#1a1a2e] text-white mt-auto">
-    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
+        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
             <p class="font-bold text-lg">IndustrialHub</p>
             <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
         </div>
-        <nav class="flex flex-wrap gap-6 text-sm text-gray-400">
-            <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
-            <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
-            <a href="#" class="hover:text-white transition">Bantuan Teknis</a>
-        </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
-    </div>
-</footer>
+    </footer>
 
 <button id="backToTop" aria-label="Back to top">
   <span class="material-symbols-outlined text-[20px]">arrow_upward</span>

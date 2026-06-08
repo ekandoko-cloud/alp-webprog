@@ -15,7 +15,7 @@ $email     = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '') 
 $user_id = (int) $_SESSION['user_id'];
 $message = '';
 
-// 1. Update Qty
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_qty'])) {
     $id      = (int) ($_POST['spareparts_id'] ?? 0);
     $new_qty = (int) ($_POST['qty'] ?? 0);
@@ -26,7 +26,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_qty'])) {
     exit;
 }
 
-// 2. Hapus Item
+
 if (isset($_GET['remove'])) {
     $id = (int) $_GET['remove'];
     if (isset($_SESSION['cart'][$id])) {
@@ -36,7 +36,7 @@ if (isset($_GET['remove'])) {
     exit;
 }
 
-// 3. Checkout -> insert sales_orders + sales_order_details, kurangi stok, kosongkan cart
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['checkout'])) {
     if (empty($_SESSION['cart'])) {
         $message = "Keranjang kosong, tidak ada yang bisa di-checkout.";

@@ -1,15 +1,15 @@
 <?php
 session_start();
-// 1. Session & Auth Check
+
 $logged_in = isset($_SESSION['user_id']);
 $username = $logged_in ? $_SESSION['username'] : '';
 $email = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '') : '';
 
-// 2. Database Connection
+
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "industrialhub"; // Sesuai nama DB Anda
+$database = "industrialhub"; 
 
 $conn = new mysqli($host, $user, $password, $database);
 
@@ -17,25 +17,25 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Proteksi akses Admin
+
 if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] !== 2) {
     header("Location: login.php");
     exit;
 }
 
-// 3. Query Statistik Dashboard
 
-// a. Summary Cards (Total Users, Sales Orders, Spare Parts, Suppliers, Purchase Orders)
+
+
 $total_users = $conn->query("SELECT COUNT(*) as total FROM users")->fetch_assoc()['total'];
 $total_sales_orders = $conn->query("SELECT COUNT(*) as total FROM sales_orders")->fetch_assoc()['total'];
 $total_spare_parts = $conn->query("SELECT COUNT(*) as total FROM spare_parts")->fetch_assoc()['total'];
 $total_purchase_orders = $conn->query("SELECT COUNT(*) as total FROM purchase_orders")->fetch_assoc()['total'];
 
-// b. Low Stock Alerts (spare_parts dimana stock_qty <= min_stock)
+
 $low_stock_query = $conn->query("SELECT name, stock_qty, min_stock FROM spare_parts WHERE stock_qty <= min_stock");
 $has_low_stock = $low_stock_query->num_rows > 0;
 
-// c. Recent Sales Orders Table
+
 $recent_sales_query = $conn->query("
     SELECT so.salesorders_id, u.username AS user, so.order_date, so.total_amount, so.payment_method 
     FROM sales_orders so 
@@ -44,7 +44,7 @@ $recent_sales_query = $conn->query("
     LIMIT 5
 ");
 
-// c2. Recent Purchase Orders Table
+
 $recent_purchase_query = $conn->query("
     SELECT po.purchaseorders_id, s.name AS supplier, po.order_date, po.created_at,
            COALESCE(SUM(od.qty_ordered * od.unit_price), 0) AS total_amount
@@ -56,7 +56,7 @@ $recent_purchase_query = $conn->query("
     LIMIT 5
 ");
 
-// d. Chart Data: Grafik total_amount dari sales_orders per bulan (6 bulan terakhir)
+
 $chart_query = $conn->query("
     SELECT DATE_FORMAT(order_date, '%b %Y') as month_name, SUM(total_amount) as total 
     FROM sales_orders 
@@ -89,7 +89,7 @@ while ($row = $chart_query->fetch_assoc()) {
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col">
 
-<!-- NAVBAR -->
+
 <nav class="border-b border-gray-200 bg-white h-14 flex items-center shrink-0 z-50">
     <div class="max-w-[1400px] mx-auto px-6 flex items-center justify-between w-full">
         <div class="flex items-center gap-3">
@@ -132,9 +132,9 @@ while ($row = $chart_query->fetch_assoc()) {
 </nav>
 
 <div class="flex flex-grow relative">
-    <!-- Mobile overlay -->
+    
     <div id="sidebarOverlay" class="hidden fixed inset-0 bg-black/40 z-40 md:hidden"></div>
-    <!-- SIDEBAR -->
+    
     <aside id="adminSidebar" class="w-64 bg-white border-r border-gray-200 flex flex-col shrink-0 min-h-full hidden md:flex fixed md:relative z-50 md:z-auto inset-y-0 left-0">
         <div class="p-6 flex items-center gap-3 border-b border-gray-100">
             <div class="w-10 h-10 rounded-full bg-slate-300 overflow-hidden">
@@ -164,7 +164,7 @@ while ($row = $chart_query->fetch_assoc()) {
         </nav>
     </aside>
 
-    <!-- MAIN CONTENT -->
+    
     <main class="flex-grow p-4 md:p-8">
         <div class="mb-8">
             <h1 class="text-2xl font-bold text-[#1e3a5f]">Dashboard Admin - Manajemen Pasok Suku Cadang</h1>
@@ -299,21 +299,14 @@ while ($row = $chart_query->fetch_assoc()) {
     </main>
 </div>
 
-<!-- FOOTER -->
+
 <footer class="bg-[#1a1a2e] text-white mt-auto">
-    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
+        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
             <p class="font-bold text-lg">IndustrialHub</p>
             <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
         </div>
-        <nav class="flex flex-wrap gap-6 text-sm text-gray-400">
-            <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
-            <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
-            <a href="#" class="hover:text-white transition">Bantuan Teknis</a>
-        </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
-    </div>
-</footer>
+    </footer>
 
 <button id="backToTop" aria-label="Back to top">
   <span class="material-symbols-outlined text-[20px]">arrow_upward</span>

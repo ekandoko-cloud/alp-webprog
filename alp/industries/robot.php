@@ -19,7 +19,7 @@ $email_sess = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '')
 </head>
 <body class="bg-white text-gray-800 antialiased min-h-screen flex flex-col">
 
-<!-- NAVBAR -->
+
 <nav class="border-b border-gray-200 bg-white sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14 relative">
         <a href="../index.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
@@ -79,10 +79,10 @@ $email_sess = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '')
     </div>
 </nav>
 
-<!-- MAIN CONTENT -->
+
 <main class="flex-grow w-full max-w-6xl mx-auto px-6 py-12 flex flex-col md:flex-row gap-10">
 
-    <!-- SIDEBAR -->
+    
     <aside class="w-64 flex-shrink-0 hidden md:block">
         <ul class="flex flex-col text-sm font-medium text-gray-600">
             <li><a href="cement.php"
@@ -115,7 +115,7 @@ $email_sess = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '')
         </ul>
     </aside>
 
-    <!-- CONTENT -->
+    
     <section class="flex-1 max-w-3xl">
         <h1 class="text-3xl md:text-4xl font-semibold text-gray-900 mb-4">Keahlian Industri Kami</h1>
         <p class="text-gray-600 text-sm leading-relaxed mb-8">
@@ -123,7 +123,7 @@ $email_sess = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '')
             Produk dan Layanan sebagai solusi total. Kami berkomitmen untuk menciptakan keunggulan bagi kesuksesan Anda.
         </p>
 
-        <!-- Image -->
+        
         <div class="w-full h-64 md:h-80 bg-gray-200 mb-10 overflow-hidden">
             <img src="../img/robot.jpg"
                  alt="Otomasi Robotik" class="w-full h-full object-cover">
@@ -157,20 +157,14 @@ $email_sess = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '')
 
 </main>
 
-<!-- FOOTER -->
+
 <footer class="bg-[#1a1a2e] text-white mt-auto">
-    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div><p class="font-bold text-lg">IndustrialHub</p>
-            <p class="text-gray-400 text-sm mt-1">Keandalan kelas teknik.</p></div>
-        <nav class="flex flex-wrap gap-6 text-sm text-gray-400">
-            <a href="#" class="hover:text-white transition">Kepatuhan</a>
-            <a href="#" class="hover:text-white transition">Ketentuan Layanan</a>
-            <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
-            <a href="#" class="hover:text-white transition">Dukungan Teknis</a>
-        </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak cipta dilindungi.</p>
-    </div>
-</footer>
+        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
+            <p class="font-bold text-lg">IndustrialHub</p>
+            <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
+        </div>
+    </footer>
 
 <button id="backToTop" aria-label="Back to top">
   <span class="material-symbols-outlined text-[20px]">arrow_upward</span>

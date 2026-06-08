@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 $best_sellers = [];
 $new_arrivals = [];
 
-// 1. Query Best Sellers: Diurutkan berdasarkan jumlah kemunculan di sales_order_details
+
 $sqlBest = "
     SELECT sp.name, sp.sku, sp.selling_price, sp.stock_qty, sp.image_url
     FROM spare_parts sp
@@ -34,7 +34,7 @@ if ($resultBest && $resultBest->num_rows > 0) {
     }
 }
 
-// 2. Query New Arrivals: Diurutkan berdasarkan created_at
+
 $sqlNew = "
     SELECT name, sku, selling_price, stock_qty, image_url, created_at
     FROM spare_parts
@@ -333,19 +333,12 @@ if ($resultNew && $resultNew->num_rows > 0) {
 </main>
 
 <footer class="bg-[#1a1a2e] text-white mt-16 mt-auto">
-    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
+        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
             <p class="font-bold text-lg">IndustrialHub</p>
             <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
         </div>
-        <nav class="flex flex-wrap gap-6 text-sm text-gray-400">
-            <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
-            <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
-            <a href="#" class="hover:text-white transition">Bantuan Teknis</a>
-        </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
-    </div>
-</footer>
+    </footer>
 
 
 <button id="backToTop" aria-label="Back to top">

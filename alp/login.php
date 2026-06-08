@@ -64,13 +64,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Login - IndustrialHub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
     <link href="styles.css" rel="stylesheet">
 </head>
 <body class="bg-white text-gray-800 antialiased min-h-screen flex flex-col">
 
-<!-- ═══ NAVBAR ═══ -->
+
 <nav class="border-b border-gray-200 bg-white sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
         <a href="index.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
@@ -125,7 +125,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <main class="flex-grow flex items-center justify-center px-4 py-12">
     <div class="bg-white border border-gray-200 rounded-lg p-8 md:p-12 w-full max-w-md shadow-sm relative overflow-hidden">
-        <!-- Accent line -->
+        
         <div class="absolute top-0 left-0 w-full h-1 bg-[#00346f]"></div>
 
         <div class="text-center mb-8">
@@ -167,21 +167,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     </div>
 </main>
 
-<!-- ═══ FOOTER ═══ -->
+
 <footer class="bg-[#1a1a2e] text-white mt-auto">
-    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
+        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
             <p class="font-bold text-lg">IndustrialHub</p>
             <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
         </div>
-        <nav class="flex flex-wrap gap-6 text-sm text-gray-400">
-            <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
-            <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
-            <a href="#" class="hover:text-white transition">Bantuan Teknis</a>
-        </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
-    </div>
-</footer>
+    </footer>
 <script src="main.js"></script>
 </body>
 </html>

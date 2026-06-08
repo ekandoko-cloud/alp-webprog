@@ -23,7 +23,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
 </head>
 <body class="bg-white text-gray-800 antialiased min-h-screen flex flex-col">
 
-<!-- TopNavBar -->
+
 <nav class="border-b border-gray-200 bg-white sticky top-0 z-50">
     <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14 relative">
         <a href="index.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
@@ -83,7 +83,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
     </div>
 </nav>
 
-<!-- Main Content -->
+
 <main class="flex-grow max-w-6xl mx-auto px-6 py-10 w-full">
     <h1 class="text-4xl font-bold text-[#1e3a5f] mb-3">Pusat Kontak &amp; Dukungan</h1>
     <p class="text-gray-600 max-w-lg mb-10 leading-relaxed">
@@ -92,7 +92,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
     </p>
 
     <div class="flex flex-col lg:flex-row gap-6">
-        <!-- Direct Inquiry Form -->
+        
         <div class="flex-1 border border-gray-200 rounded-xl p-8">
             <h2 class="text-xl font-bold text-[#1e3a5f] mb-6">Formulir Pertanyaan</h2>
             <form action="https://formsubmit.co/ajax/ekandoko@student.ciputra.ac.id" method="POST"
@@ -141,7 +141,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
             </form>
         </div>
 
-        <!-- Support + HQ -->
+        
         <div class="lg:w-96 flex flex-col gap-6">
             <div class="border border-gray-200 rounded-xl p-6">
                 <div class="flex items-center gap-2 mb-3">
@@ -178,21 +178,14 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
     </div>
 </main>
 
-<!-- Footer -->
+
 <footer class="bg-[#1a1a2e] text-white mt-16 mt-auto">
-    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
+        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
             <p class="font-bold text-lg">IndustrialHub</p>
             <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
         </div>
-        <nav class="flex flex-wrap gap-6 text-sm text-gray-400">
-            <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
-            <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
-            <a href="#" class="hover:text-white transition">Bantuan Teknis</a>
-        </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
-    </div>
-</footer>
+    </footer>
 
 <button id="backToTop" aria-label="Back to top">
   <span class="material-symbols-outlined text-[20px]">arrow_upward</span>

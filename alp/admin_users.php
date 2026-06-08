@@ -15,7 +15,7 @@ if ($conn->connect_error) {
     die("Koneksi gagal: " . $conn->connect_error);
 }
 
-// Cek akses admin
+
 if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] !== 2) {
     die("Akses ditolak!");
 }
@@ -32,7 +32,7 @@ if (isset($_GET['delete'])) {
     exit;
 }
 
-// Mengambil data ke array agar bisa di-loop 2x untuk tabel dan card
+
 $query = mysqli_query($conn, "SELECT user_id, username, email, role_id FROM users ORDER BY user_id ASC");
 $users = [];
 while ($row = mysqli_fetch_assoc($query)) {
@@ -209,19 +209,12 @@ while ($row = mysqli_fetch_assoc($query)) {
 </div>
 
 <footer class="bg-[#1a1a2e] text-white mt-16 mt-auto">
-    <div class="max-w-6xl mx-auto px-6 py-10 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-        <div>
+        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
             <p class="font-bold text-lg">IndustrialHub</p>
             <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
         </div>
-        <nav class="flex flex-wrap gap-6 text-sm text-gray-400">
-            <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
-            <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
-            <a href="#" class="hover:text-white transition">Bantuan Teknis</a>
-        </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
-    </div>
-</footer>
+    </footer>
 
 <button id="backToTop" aria-label="Back to top" class="fixed bottom-6 right-6 bg-[#1e3a5f] text-white p-2 rounded-full shadow-lg hover:bg-blue-900 transition-opacity">
     <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
