@@ -1,37 +1,3 @@
-<?php
-session_start();
-$logged_in = isset($_SESSION['user_id']);
-$username = $logged_in ? $_SESSION['username'] : '';
-$email = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '') : '';
-
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "industrialhub";
-
-$conn = new mysqli($host, $user, $password, $database);
-
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
-}
-
-$new_arrivals = [];
-
-
-
-$sqlNew = "
-    SELECT name, sku, selling_price, stock_qty, image_url, created_at
-    FROM spare_parts
-    ORDER BY created_at DESC
-    LIMIT 4
-";
-$resultNew = $conn->query($sqlNew);
-if ($resultNew && $resultNew->num_rows > 0) {
-    while ($row = $resultNew->fetch_assoc()) {
-        $new_arrivals[] = $row;
-    }
-}
-?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
