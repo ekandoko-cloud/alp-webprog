@@ -1,0 +1,32 @@
+<!-- ═══ NAVBAR ═══ -->
+<nav class="border-b border-gray-200 bg-white sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
+        <!-- Logo -->
+        <a href="#" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
+
+        <!-- Nav links -->
+        <div class="hidden md:flex items-center gap-8 text-sm text-gray-600 font-medium">
+            <a href="#" class="hover:text-[#1e3a5f] transition-colors">Products</a>
+            <a href="#" class="hover:text-[#1e3a5f] transition-colors">Industries</a>
+            <a href="#" class="text-[#1e3a5f] nav-active">Contacts</a>
+        </div>
+
+        <!-- Right actions -->
+        <div class="flex items-center gap-3">
+            <!-- Search -->
+            <div class="hidden md:flex items-center gap-2 border border-gray-300 rounded-md px-3 py-1.5 text-sm text-gray-400 bg-white w-52">
+                <svg class="w-4 h-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <circle cx="11" cy="11" r="8"/><path d="M21 21l-4.35-4.35"/>
+                </svg>
+                <span>Search 2.4M SKUs…</span>
+            </div>
+            <button class="border border-gray-300 text-sm font-medium px-4 py-1.5 rounded-md text-gray-700 hover:bg-gray-50 transition">Login</button>
+            <button class="bg-[#1e3a5f] text-white text-sm font-medium px-4 py-1.5 rounded-md flex items-center gap-2 hover:bg-[#162d4a] transition">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                    <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/>
+                </svg>
+                Cart
+            </button>
+        </div>
+    </div>
+</nav>
