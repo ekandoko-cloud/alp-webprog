@@ -95,9 +95,8 @@ $email = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '') : ''
         </div>
 
         <div class="flex-1 w-full relative rounded-lg overflow-hidden shadow-sm h-[350px] lg:h-[400px]">
-            <img src="img/industries.webp" alt="Heavy Infrastructure Pipes"
-                 class="w-full h-full object-cover grayscale mix-blend-multiply opacity-90 bg-slate-200"
-                 data-alt="Dark, cinematic industrial photography of a large-scale piping system in a factory. Thick metal pipes with joint flanges curve dynamically through a massive warehouse. The lighting is cool and moody, emphasizing the raw metallic textures and immense scale of the heavy infrastructure. High contrast, professional corporate style."/>
+             <img src="img/industries.webp" alt="Heavy Infrastructure Pipes"
+                  class="w-full h-full object-cover grayscale mix-blend-multiply opacity-90 bg-slate-200"/>
             <div class="absolute inset-0 bg-gradient-to-t from-[#0a192f]/60 to-transparent"></div>
         </div>
     </section>
@@ -240,7 +239,7 @@ $email = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '') : ''
             <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
             <a href="#" class="hover:text-white transition">Bantuan Teknis</a>
         </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2024 IndustrialHub. Hak Cipta Dilindungi.</p>
+        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
     </div>
 </footer>
 

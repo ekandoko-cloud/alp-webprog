@@ -160,7 +160,7 @@ $email_sess = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '')
             <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
             <a href="#" class="hover:text-white transition">Dukungan Teknis</a>
         </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2024 IndustrialHub. Hak cipta dilindungi.</p>
+        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak cipta dilindungi.</p>
     </div>
 </footer>
 

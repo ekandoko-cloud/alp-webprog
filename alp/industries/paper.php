@@ -119,7 +119,7 @@ $email_sess = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '')
         <!-- Image -->
         <div class="w-full h-64 md:h-80 bg-gray-200 mb-10 overflow-hidden">
             <img src="../img/paper.jpg"
-                 alt="Pulp dan Kertas" class="w-full h-full object-cover" data-alt="image_5a1663.png">
+                 alt="Pulp dan Kertas" class="w-full h-full object-cover">
         </div>
 
         <h2 class="text-2xl font-semibold text-gray-900 mb-4">Produksi Pulp dan Kertas yang Andal</h2>
@@ -160,7 +160,7 @@ $email_sess = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '')
             <a href="#" class="hover:text-white transition">Kebijakan Privasi</a>
             <a href="#" class="hover:text-white transition">Dukungan Teknis</a>
         </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2024 IndustrialHub. Hak cipta dilindungi.</p>
+        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak cipta dilindungi.</p>
     </div>
 </footer>
 

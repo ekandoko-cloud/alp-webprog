@@ -25,8 +25,11 @@ function build_filter($table_prefix, $date_col)
     <meta charset="UTF-8">
     <title>Sales & Purchase - IndustrialHub</title>
     <script src="https://cdn.tailwindcss.com"></script>
+<!--    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"-->
+<!--          rel="stylesheet">-->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
           rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="styles.css" rel="stylesheet">
 </head>
 <body class="bg-slate-50 min-h-screen flex flex-col">
@@ -75,8 +78,7 @@ function build_filter($table_prefix, $date_col)
                 <img src="https://ui-avatars.com/api/?name=Warehouse+Admin" alt="Admin">
             </div>
             <div>
-                    <p class="text-sm font-bold text-slate-900">Admin Transaksi</p>
-                <p class="text-xs text-slate-500">Panel Manajemen Penjualan &amp; Pembelian</p>
+                    <p class="text-sm font-bold text-slate-900">Warehouse Admin</p>
             </div>
         </div>
         <nav class="flex-grow p-4 space-y-1">
@@ -203,7 +205,7 @@ function build_filter($table_prefix, $date_col)
             <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
             <a href="#" class="hover:text-white transition">Bantuan Teknis</a>
         </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2024 IndustrialHub. Hak Cipta Dilindungi.</p>
+        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
     </div>
 </footer>
 <button id="backToTop" aria-label="Back to top">

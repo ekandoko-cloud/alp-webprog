@@ -25,7 +25,6 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] !== 2) {
 
 // 3. Query Statistik Dashboard
 
-// a. Summary Cards (Total Users, Sales Orders, Spare Parts, Suppliers)
 // a. Summary Cards (Total Users, Sales Orders, Spare Parts, Suppliers, Purchase Orders)
 $total_users = $conn->query("SELECT COUNT(*) as total FROM users")->fetch_assoc()['total'];
 $total_sales_orders = $conn->query("SELECT COUNT(*) as total FROM sales_orders")->fetch_assoc()['total'];
@@ -93,7 +92,7 @@ while ($row = $chart_query->fetch_assoc()) {
 <!-- NAVBAR -->
 <nav class="border-b border-gray-200 bg-white h-14 flex items-center shrink-0 z-50">
     <div class="max-w-[1400px] mx-auto px-6 flex items-center justify-between w-full">
-            <a href="landing.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub - Admin</a>
+            <a href="landing.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
         <div class="flex-1 flex items-center justify-end gap-3">
             <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1" title="Toggle Dark Mode">
                 <span class="material-symbols-outlined text-[20px]">dark_mode</span>
@@ -305,7 +304,7 @@ while ($row = $chart_query->fetch_assoc()) {
             <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
             <a href="#" class="hover:text-white transition">Bantuan Teknis</a>
         </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2024 IndustrialHub. Hak Cipta Dilindungi.</p>
+        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
     </div>
 </footer>
 

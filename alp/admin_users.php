@@ -41,8 +41,11 @@ $query = mysqli_query($conn, "SELECT user_id, username, email, role_id FROM user
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Manage Users - Admin Panel</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<!--    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">-->
+<!--    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />-->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap"
+          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet"/>
     <link href="styles.css" rel="stylesheet">
     <style>body { font-family: 'DM Sans', sans-serif; }</style>
 </head>
@@ -94,8 +97,7 @@ $query = mysqli_query($conn, "SELECT user_id, username, email, role_id FROM user
                 <img src="https://ui-avatars.com/api/?name=Warehouse+Admin" alt="Admin">
             </div>
             <div>
-                    <p class="text-sm font-bold text-slate-900">Admin Sistem</p>
-                <p class="text-xs text-slate-500">Panel Manajemen Pengguna</p>
+                    <p class="text-sm font-bold text-slate-900">Warehouse Admin</p>
             </div>
         </div>
 
@@ -185,7 +187,7 @@ $query = mysqli_query($conn, "SELECT user_id, username, email, role_id FROM user
             <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
             <a href="#" class="hover:text-white transition">Bantuan Teknis</a>
         </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2024 IndustrialHub. Hak Cipta Dilindungi.</p>
+        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
     </div>
 </footer>
 

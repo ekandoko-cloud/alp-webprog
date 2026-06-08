@@ -3,17 +3,6 @@ session_start();
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
 require_once 'koneksi.php';
 
-$host = "localhost";
-$user = "root";
-$password = "";
-$database = "industrialhub";
-
-$conn = new mysqli($host, $user, $password, $database);
-
-if ($conn->connect_error) {
-    die("Koneksi gagal: " . $conn->connect_error);
-}
-
 if (!isset($_SESSION['user_id'])) {
     echo "<script>alert('Silakan masuk terlebih dahulu untuk mengakses keranjang!'); window.location='login.php';</script>";
     exit;

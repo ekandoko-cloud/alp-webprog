@@ -60,15 +60,7 @@ if ($resultNew && $resultNew->num_rows > 0) {
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap"
           rel="stylesheet"/>
     <link href="styles.css" rel="stylesheet">
-    <style>
-        details > summary {
-            list-style: none;
-        }
 
-        details > summary::-webkit-details-marker {
-            display: none;
-        }
-    </style>
 </head>
 <body class="bg-white text-gray-800 antialiased min-h-screen flex flex-col font-['DM_Sans']">
 
@@ -124,19 +116,18 @@ if ($resultNew && $resultNew->num_rows > 0) {
 </nav>
 
 <main class="flex-grow">
-    <section class="relative w-full bg-gray-50 border-b border-gray-200 overflow-hidden">
-        <div class="carousel absolute inset-0 bg-cover bg-center transition-opacity duration-1000 ease-in-out opacity-100"
-             style="background-image: url('alp-webprog/alp/img/industri1.jpg.jpeg')">
-            <div class="img-wrap flex transition-transform duration-500 case-in-out">
-                <img class="w-full h-auto flex-shrink-0" src="img/industri1.jpg.jpeg" alt="Image 1">
-                <img class="w-full h-auto flex-shrink-0" src="img/industri2.jpg.jpeg" alt="Image 2">
-                <img class="w-full h-auto flex-shrink-0" src="img/industri3.jpg.jpeg" alt="Image 3">
-                <img class="w-full h-auto flex-shrink-0" src="img/industri4.jpg.jpeg" alt="Image 3">
-                <img class="w-full h-auto flex-shrink-0" src="img/industri5.jpg.jpeg" alt="Image 3">
+    <section class="relative w-full bg-gray-50 border-b border-gray-200 overflow-hidden" style="min-height:480px;">
+        <div class="carousel absolute inset-0">
+            <div class="img-wrap flex h-full transition-transform duration-500 case-in-out">
+                <img class="w-full h-full object-cover flex-shrink-0" src="img/industri1.jpg.jpeg" alt="Image 1">
+                <img class="w-full h-full object-cover flex-shrink-0" src="img/industri2.jpg.jpeg" alt="Image 2">
+                <img class="w-full h-full object-cover flex-shrink-0" src="img/industri3.jpg.jpeg" alt="Image 3">
+                <img class="w-full h-full object-cover flex-shrink-0" src="img/industri4.jpg.jpeg" alt="Image 4">
+                <img class="w-full h-full object-cover flex-shrink-0" src="img/industri5.jpg.jpeg" alt="Image 5">
             </div>
         </div>
         <div class="absolute inset-0 z-0 opacity-10"
-             style="backgroun   xd-image: radial-gradient(#00346f 1px, transparent 1px); background-size: 24px 24px;"></div>
+             style="background-image: radial-gradient(#00346f 1px, transparent 1px); background-size: 24px 24px;"></div>
         <div class="max-w-6xl mx-auto px-6 py-24 relative z-10 flex flex-col items-center text-center">
             <span class="font-medium text-sm text-[#1e3a5f] uppercase tracking-widest mb-4">Sistem Pasok Suku Cadang Industri</span>
             <h1 class="text-5xl font-bold text-gray-900 mb-6 max-w-4xl">Supplier Suku Cadang Industri<br>Terintegrasi
@@ -184,46 +175,7 @@ if ($resultNew && $resultNew->num_rows > 0) {
         </div>
     </section>
 
-    <!--    <section class="max-w-6xl mx-auto px-6 py-16">-->
-    <!--        <div class="flex justify-between items-end mb-8">-->
-    <!--            <div>-->
-    <!--                <h2 class="text-2xl font-bold text-gray-900 mb-2">Best Seller Products</h2>-->
-    <!--                <p class="text-gray-600">Spare part dengan permintaan tertinggi di platform kami.</p>-->
-    <!--            </div>-->
-    <!--        </div>-->
-    <!---->
-    <!--        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">-->
-    <!--            --><?php //if(empty($best_sellers)): ?>
-    <!--                <div class="col-span-4 text-center py-10 text-gray-500">Belum ada data produk best seller.</div>-->
-    <!--            --><?php //else: ?>
-    <!--                --><?php //foreach($best_sellers as $item): ?>
-    <!--                    <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md hover:border-[#1e3a5f] transition-all flex flex-col">-->
-    <!--                        <div class="h-48 bg-gray-100 flex items-center justify-center border-b border-gray-200 relative">-->
-    <!--                            --><?php //if(!empty($item['image_url'])): ?>
-    <!--                                <img src="-->
-    <?php //= htmlspecialchars($item['image_url']) ?><!--" alt="Product" class="h-full w-full object-cover">-->
-    <!--                            --><?php //else: ?>
-    <!--                                <span class="material-symbols-outlined text-gray-300 text-[64px]">precision_manufacturing</span>-->
-    <!--                            --><?php //endif; ?>
-    <!--                        </div>-->
-    <!--                        <div class="p-5 flex-grow flex flex-col">-->
-    <!--                            <div class="text-xs text-gray-500 font-mono mb-1">SKU: -->
-    <?php //= htmlspecialchars($item['sku']) ?><!--</div>-->
-    <!--                            <h3 class="text-md font-bold text-gray-900 mb-3 flex-grow">-->
-    <?php //= htmlspecialchars($item['name']) ?><!--</h3>-->
-    <!--                            <div class="flex justify-between items-end mt-auto">-->
-    <!--                                <div class="text-lg font-bold text-[#1e3a5f]">Rp -->
-    <?php //= number_format($item['selling_price'], 0, ',', '.') ?><!--</div>-->
-    <!--                                <div class="text-xs font-medium px-2 py-1 bg-green-50 text-green-700 rounded border border-green-100">-->
-    <!--                                    Stok: --><?php //= htmlspecialchars($item['stock_qty']) ?>
-    <!--                                </div>-->
-    <!--                            </div>-->
-    <!--                        </div>-->
-    <!--                    </div>-->
-    <!--                --><?php //endforeach; ?>
-    <!--            --><?php //endif; ?>
-    <!--        </div>-->
-    <!--    </section>-->
+
 
     <section class="max-w-6xl mx-auto px-6 py-16 bg-gray-50 rounded-xl mb-16">
         <div class="flex justify-between items-end mb-8">
@@ -374,7 +326,7 @@ if ($resultNew && $resultNew->num_rows > 0) {
             <a href="#" class="hover:text-white transition">Syarat &amp; Ketentuan</a>
             <a href="#" class="hover:text-white transition">Bantuan Teknis</a>
         </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2024 IndustrialHub. Hak Cipta Dilindungi.</p>
+        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
     </div>
 </footer>
 

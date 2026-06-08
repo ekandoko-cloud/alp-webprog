@@ -1,21 +1,23 @@
-//carousel
+// Carousel
 const wrap = document.getElementsByClassName('img-wrap')[0];
-const images = wrap.getElementsByTagName('img');
+if (wrap) {
+  const images = wrap.getElementsByTagName('img');
 
-function startCarousel() {
+  function startCarousel() {
     setInterval(() => {
-        wrap.style.transition = "transform 0.5s ease-in-out";
-        wrap.style.transform = "translateX(-100%)";
+      wrap.style.transition = "transform 0.5s ease-in-out";
+      wrap.style.transform = "translateX(-100%)";
 
-        setTimeout(() => {
-            wrap.style.transition = "none";
-            wrap.appendChild(wrap.children[0]);
-            wrap.style.transform = "translateX(0)";
-        }, 500);
+      setTimeout(() => {
+        wrap.style.transition = "none";
+        wrap.appendChild(wrap.children[0]);
+        wrap.style.transform = "translateX(0)";
+      }, 500);
     }, 3000);
-}
+  }
 
-document.addEventListener("DOMContentLoaded", startCarousel);
+  document.addEventListener("DOMContentLoaded", startCarousel);
+}
 
 // Dark Mode Toggle
 (function() {

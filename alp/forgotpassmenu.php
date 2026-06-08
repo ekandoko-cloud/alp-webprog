@@ -182,7 +182,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <a href="#" class="hover:text-white transition">Privacy Policy</a>
             <a href="#" class="hover:text-white transition">Technical Support</a>
         </nav>
-        <p class="text-sm text-gray-500 whitespace-nowrap">© 2024 IndustrialHub. All rights reserved.</p>
+        <p class="text-sm text-gray-500 whitespace-nowrap">© 2026 IndustrialHub. All rights reserved.</p>
     </div>
 </footer>
 
