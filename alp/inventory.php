@@ -317,16 +317,18 @@ $suppliers_list = $conn->query("SELECT * FROM suppliers");
                         <tbody class="divide-y">
                         <?php while ($row = $parts->fetch_assoc()): ?>
                             <tr class="hover:bg-slate-50">
-                                <td class="p-4"><a href='edit_parts.php?id=<?= $row['part_id'] ?>'><img src="<?= $row['image_url'] ?? 'https://via.placeholder.com/50' ?></a>
-                                <td class="p-4 font-bold text-slate-800"><?= $row['name'] ?><br><span class="text-xs text-gray-400 font-normal"><?= $row['sku'] ?></span></td>
-                                <td class="p-4 text-xs"><?= $row['category_name'] ?> <br> <?= $row['unit'] ?></td>
+                                <td class="p-4">
+                                    <img src="<?= $row['image_url'] ?? 'https://via.placeholder.com/50' ?>" alt="Gambar" class="w-12 h-12 object-cover rounded border">
+                                </td>
+                                <td class="p-4 font-bold text-slate-800"><?= htmlspecialchars($row['name']) ?><br><span class="text-xs text-gray-400 font-normal"><?= htmlspecialchars($row['sku']) ?></span></td>
+                                <td class="p-4 text-xs"><?= htmlspecialchars($row['category_name'] ?? '-') ?> <br> <?= htmlspecialchars($row['unit']) ?></td>
                                 <td class="p-4"><?= $row['stock_qty'] ?> / <?= $row['min_stock'] ?></td>
                                 <td class="p-4">Rp <?= number_format($row['selling_price'], 0, ',', '.') ?></td>
                                 <td class="p-4">
                                     <div class="flex gap-2">
-                                        <a href="?tab=parts&action=edit_part&id=<?= $row['spareparts_id'] ?>" class="text-yellow-600 text-xs">Edit</a>
-                                        <a href="?tab=parts&action=restock&id=<?= $row['spareparts_id'] ?>" class="text-blue-600 text-xs">Restock</a>
-                                        <a href="?delete_part=<?= $row['spareparts_id'] ?>" onclick="return confirm('Hapus?')" class="text-red-600 text-xs">Hapus</a>
+                                        <a href="?tab=parts&action=edit_part&id=<?= $row['spareparts_id'] ?>" class="text-yellow-600 text-xs hover:underline">Edit</a>
+                                        <a href="?tab=parts&action=restock&id=<?= $row['spareparts_id'] ?>" class="text-blue-600 text-xs hover:underline">Restock</a>
+                                        <a href="?delete_part=<?= $row['spareparts_id'] ?>" onclick="return confirm('Hapus?')" class="text-red-600 text-xs hover:underline">Hapus</a>
                                     </div>
                                 </td>
                             </tr>
@@ -339,19 +341,19 @@ $suppliers_list = $conn->query("SELECT * FROM suppliers");
                     <?php $parts->data_seek(0); while ($row = $parts->fetch_assoc()): ?>
                         <div class="bg-white border p-4 rounded-lg shadow-sm">
                             <div class="flex items-center gap-4">
-                                <img src="<?= $row['image_url'] ?? 'https://via.placeholder.com/50' ?>
+                                <img src="<?= $row['image_url'] ?? 'https://via.placeholder.com/50' ?>" alt="Gambar" class="w-16 h-16 object-cover rounded border">
                                 <div>
-                                    <h3 class="font-bold text-slate-800"><?= $row['name'] ?></h3>
-                                    <p class="text-xs text-gray-500"><?= $row['sku'] ?></p>
+                                    <h3 class="font-bold text-slate-800"><?= htmlspecialchars($row['name']) ?></h3>
+                                    <p class="text-xs text-gray-500"><?= htmlspecialchars($row['sku']) ?></p>
                                     <p class="text-sm font-bold text-green-600">Rp <?= number_format($row['selling_price'], 0, ',', '.') ?></p>
                                 </div>
                             </div>
                             <div class="mt-4 flex justify-between items-center text-sm">
                                 <span>Stok: <span class="font-bold"><?= $row['stock_qty'] ?></span></span>
                                 <div class="flex gap-2">
-                                    <a href="?tab=parts&action=edit_part&id=<?= $row['spareparts_id'] ?>" class="text-blue-600 text-xs">Edit</a>
-                                    <a href="?tab=parts&action=restock&id=<?= $row['spareparts_id'] ?>" class="text-green-600 text-xs">Restock</a>
-                                    <a href="?delete_part=<?= $row['spareparts_id'] ?>" class="text-red-600 text-xs">Hapus</a>
+                                    <a href="?tab=parts&action=edit_part&id=<?= $row['spareparts_id'] ?>" class="text-blue-600 text-xs hover:underline">Edit</a>
+                                    <a href="?tab=parts&action=restock&id=<?= $row['spareparts_id'] ?>" class="text-green-600 text-xs hover:underline">Restock</a>
+                                    <a href="?delete_part=<?= $row['spareparts_id'] ?>" onclick="return confirm('Hapus?')" class="text-red-600 text-xs hover:underline">Hapus</a>
                                 </div>
                             </div>
                         </div>
@@ -442,12 +444,12 @@ $suppliers_list = $conn->query("SELECT * FROM suppliers");
                 <div class="md:hidden space-y-4">
                     <?php $suppliers_list->data_seek(0); while ($s = $suppliers_list->fetch_assoc()): ?>
                         <div class="bg-white border p-4 rounded-lg shadow-sm">
-                            <h3 class="font-bold text-slate-800"><?= $s['name'] ?></h3>
-                            <p class="text-sm text-gray-600">Contact: <?= $s['contact_person'] ?></p>
-                            <p class="text-xs text-gray-500"><?= $s['phone'] ?> | <?= $s['email'] ?></p>
+                            <h3 class="font-bold text-slate-800"><?= htmlspecialchars($s['name']) ?></h3>
+                            <p class="text-sm text-gray-600">Contact: <?= htmlspecialchars($s['contact_person']) ?></p>
+                            <p class="text-xs text-gray-500"><?= htmlspecialchars($s['phone']) ?> | <?= htmlspecialchars($s['email']) ?></p>
                             <div class="mt-4 flex gap-2">
                                 <a href="?tab=suppliers&action=edit_supplier&id=<?= $s['suppliers_id'] ?>" class="text-blue-600 text-sm">Edit</a>
-                                <a href="?delete_supplier=<?= $s['suppliers_id'] ?>" class="text-red-600 text-sm">Hapus</a>
+                                <a href="?delete_supplier=<?= $s['suppliers_id'] ?>" onclick="return confirm('Hapus?')" class="text-red-600 text-sm">Hapus</a>
                             </div>
                         </div>
                     <?php endwhile; ?>
@@ -458,13 +460,13 @@ $suppliers_list = $conn->query("SELECT * FROM suppliers");
     </main>
 </div>
 
-<footer class="bg-[#1a1a2e] text-white mt-auto py-10 px-6">
-        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
-            <p class="font-bold text-lg">IndustrialHub</p>
-            <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
-            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
-        </div>
-    </footer>
+<footer class="bg-[#1a1a2e] dark:bg-slate-950 text-white mt-auto py-6 px-6 border-t border-slate-800/40 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto text-center md:text-left">
+        <p class="font-bold text-lg text-slate-100 dark:text-white">IndustrialHub</p>
+        <p class="text-gray-400 dark:text-slate-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+        <p class="text-sm text-gray-500 dark:text-slate-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
+    </div>
+</footer>
 
 <script src="main.js"></script>
 </body>

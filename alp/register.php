@@ -87,9 +87,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             <a href="contacts.php" class="hover:text-[#1e3a5f] transition-colors">Kontak</a>
         </div>
         <div class="flex items-center gap-2">
-            <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1" title="Toggle Dark Mode">
-                <span class="material-symbols-outlined text-[20px]">dark_mode</span>
-            </button>
             <?php if ($logged_in): ?>
                 <div class="relative group">
                     <button class="flex items-center gap-2 border border-gray-300 rounded-full px-3 py-1.5 text-sm font-medium text-gray-700 bg-white group-hover:bg-gray-50 transition cursor-default">
@@ -186,13 +183,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 </main>
 
 
-<footer class="bg-[#1a1a2e] text-white mt-auto">
-        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
-            <p class="font-bold text-lg">IndustrialHub</p>
-            <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
-            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
-        </div>
-    </footer>
+<footer class="bg-[#1a1a2e] dark:bg-slate-950 text-white mt-auto py-6 px-6 border-t border-slate-800/40 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto text-center md:text-left">
+        <p class="font-bold text-lg text-slate-100 dark:text-white">IndustrialHub</p>
+        <p class="text-gray-400 dark:text-slate-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+        <p class="text-sm text-gray-500 dark:text-slate-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
+    </div>
+</footer>
 <script src="main.js"></script>
 </body>
 </html>

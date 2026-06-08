@@ -9,7 +9,7 @@ $email = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '') : ''
 $host = "localhost";
 $user = "root";
 $password = "";
-$database = "industrialhub"; 
+$database = "industrialhub";
 
 $conn = new mysqli($host, $user, $password, $database);
 
@@ -22,8 +22,6 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] !== 2) {
     header("Location: login.php");
     exit;
 }
-
-
 
 
 $total_users = $conn->query("SELECT COUNT(*) as total FROM users")->fetch_assoc()['total'];
@@ -93,13 +91,15 @@ while ($row = $chart_query->fetch_assoc()) {
 <nav class="border-b border-gray-200 bg-white h-14 flex items-center shrink-0 z-50">
     <div class="max-w-[1400px] mx-auto px-6 flex items-center justify-between w-full">
         <div class="flex items-center gap-3">
-            <button id="sidebarToggle" class="md:hidden p-1 text-gray-600 hover:text-[#1e3a5f] transition-colors" aria-label="Toggle Sidebar">
+            <button id="sidebarToggle" class="md:hidden p-1 text-gray-600 hover:text-[#1e3a5f] transition-colors"
+                    aria-label="Toggle Sidebar">
                 <span class="material-symbols-outlined text-[24px]">menu</span>
             </button>
             <a href="index.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
         </div>
         <div class="flex items-center gap-3">
-            <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1" title="Toggle Dark Mode">
+            <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1"
+                    title="Toggle Dark Mode">
                 <span class="material-symbols-outlined text-[20px]">dark_mode</span>
             </button>
             <div class="relative group">
@@ -132,10 +132,11 @@ while ($row = $chart_query->fetch_assoc()) {
 </nav>
 
 <div class="flex flex-grow relative">
-    
+
     <div id="sidebarOverlay" class="hidden fixed inset-0 bg-black/40 z-40 md:hidden"></div>
-    
-    <aside id="adminSidebar" class="w-64 bg-white border-r border-gray-200 flex flex-col shrink-0 min-h-full hidden md:flex fixed md:relative z-50 md:z-auto inset-y-0 left-0">
+
+    <aside id="adminSidebar"
+           class="w-64 bg-white border-r border-gray-200 flex flex-col shrink-0 min-h-full hidden md:flex fixed md:relative z-50 md:z-auto inset-y-0 left-0">
         <div class="p-6 flex items-center gap-3 border-b border-gray-100">
             <div class="w-10 h-10 rounded-full bg-slate-300 overflow-hidden">
                 <img src="https://ui-avatars.com/api/?name=Warehouse+Admin" alt="Admin">
@@ -164,18 +165,20 @@ while ($row = $chart_query->fetch_assoc()) {
         </nav>
     </aside>
 
-    
+
     <main class="flex-grow p-4 md:p-8">
         <div class="mb-8">
             <h1 class="text-2xl font-bold text-[#1e3a5f]">Dashboard Admin - Manajemen Pasok Suku Cadang</h1>
-            <p class="text-sm text-slate-500">Ringkasan operasional sistem pasok suku cadang, data inventaris, dan peringatan stok.</p>
+            <p class="text-sm text-slate-500">Ringkasan operasional sistem pasok suku cadang, data inventaris, dan
+                peringatan stok.</p>
         </div>
 
         <?php if ($has_low_stock): ?>
             <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-8 rounded-r-lg shadow-sm">
                 <div class="flex items-center gap-2 mb-2">
                     <span class="material-symbols-outlined text-red-600">warning</span>
-                    <h3 class="text-red-800 font-bold">Peringatan: Stok Suku Cadang Menipis! Segera Lakukan Restock.</h3>
+                    <h3 class="text-red-800 font-bold">Peringatan: Stok Suku Cadang Menipis! Segera Lakukan
+                        Restock.</h3>
                 </div>
                 <ul class="list-disc list-inside text-sm text-red-700 ml-2">
                     <?php while ($item = $low_stock_query->fetch_assoc()): ?>
@@ -234,8 +237,10 @@ while ($row = $chart_query->fetch_assoc()) {
                             <tr class="hover:bg-slate-50 transition-colors">
                                 <td class="px-6 py-4 font-medium text-slate-900" data-label="ID Pesanan">
                                     #<?= htmlspecialchars($row['salesorders_id']) ?></td>
-                                <td class="px-6 py-4 text-slate-700" data-label="Pelanggan"><?= htmlspecialchars($row['user'] ?? 'Guest') ?></td>
-                                <td class="px-6 py-4 text-slate-500" data-label="Tanggal"><?= date('d M Y, H:i', strtotime($row['order_date'])) ?></td>
+                                <td class="px-6 py-4 text-slate-700"
+                                    data-label="Pelanggan"><?= htmlspecialchars($row['user'] ?? 'Guest') ?></td>
+                                <td class="px-6 py-4 text-slate-500"
+                                    data-label="Tanggal"><?= date('d M Y, H:i', strtotime($row['order_date'])) ?></td>
                                 <td class="px-6 py-4 font-bold text-green-600" data-label="Total">
                                     Rp <?= number_format($row['total_amount'], 2, ',', '.') ?></td>
                                 <td class="px-6 py-4" data-label="Metode Bayar">
@@ -278,11 +283,14 @@ while ($row = $chart_query->fetch_assoc()) {
                             <tr class="hover:bg-slate-50 transition-colors">
                                 <td class="px-6 py-4 font-medium text-slate-900" data-label="ID PO">
                                     #<?= htmlspecialchars($row['purchaseorders_id']) ?></td>
-                                <td class="px-6 py-4 text-slate-700" data-label="Supplier"><?= htmlspecialchars($row['supplier'] ?? 'Unknown') ?></td>
-                                <td class="px-6 py-4 text-slate-500" data-label="Tanggal"><?= date('d M Y', strtotime($row['order_date'])) ?></td>
+                                <td class="px-6 py-4 text-slate-700"
+                                    data-label="Supplier"><?= htmlspecialchars($row['supplier'] ?? 'Unknown') ?></td>
+                                <td class="px-6 py-4 text-slate-500"
+                                    data-label="Tanggal"><?= date('d M Y', strtotime($row['order_date'])) ?></td>
                                 <td class="px-6 py-4 font-bold text-orange-600" data-label="Total">
                                     Rp <?= number_format($row['total_amount'], 2, ',', '.') ?></td>
-                                <td class="px-6 py-4 text-slate-500" data-label="Catatan"><?= htmlspecialchars($row['notes'] ?? '-') ?></td>
+                                <td class="px-6 py-4 text-slate-500"
+                                    data-label="Catatan"><?= htmlspecialchars($row['notes'] ?? '-') ?></td>
                             </tr>
                         <?php endwhile; ?>
                     <?php else: ?>
@@ -300,16 +308,16 @@ while ($row = $chart_query->fetch_assoc()) {
 </div>
 
 
-<footer class="bg-[#1a1a2e] text-white mt-auto">
-        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
-            <p class="font-bold text-lg">IndustrialHub</p>
-            <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
-            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
-        </div>
-    </footer>
+<footer class="bg-[#1a1a2e] dark:bg-slate-950 text-white mt-auto py-6 px-6 border-t border-slate-800/40 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto text-center md:text-left">
+        <p class="font-bold text-lg text-slate-100 dark:text-white">IndustrialHub</p>
+        <p class="text-gray-400 dark:text-slate-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+        <p class="text-sm text-gray-500 dark:text-slate-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
+    </div>
+</footer>
 
 <button id="backToTop" aria-label="Back to top">
-  <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+    <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
 </button>
 <script src="main.js"></script>
 </body>

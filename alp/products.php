@@ -178,13 +178,13 @@ $categories = $conn->query("SELECT * FROM categories");
 </main>
 
 
-<footer class="bg-[#1a1a2e] text-white mt-16 mt-auto">
-        <div class="max-w-6xl mx-auto px-6 py-10 text-center md:text-left">
-            <p class="font-bold text-lg">IndustrialHub</p>
-            <p class="text-gray-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
-            <p class="text-sm text-gray-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
-        </div>
-    </footer>
+<footer class="bg-[#1a1a2e] dark:bg-slate-950 text-white mt-auto py-6 px-6 border-t border-slate-800/40 dark:border-slate-800">
+    <div class="max-w-6xl mx-auto text-center md:text-left">
+        <p class="font-bold text-lg text-slate-100 dark:text-white">IndustrialHub</p>
+        <p class="text-gray-400 dark:text-slate-400 text-sm mt-1">Sistem Pasok Suku Cadang Industri Terpercaya.</p>
+        <p class="text-sm text-gray-500 dark:text-slate-500 mt-4">© 2026 IndustrialHub. Hak Cipta Dilindungi.</p>
+    </div>
+</footer>
 
 <button id="backToTop" aria-label="Back to top">
     <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
