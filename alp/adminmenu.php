@@ -92,8 +92,13 @@ while ($row = $chart_query->fetch_assoc()) {
 <!-- NAVBAR -->
 <nav class="border-b border-gray-200 bg-white h-14 flex items-center shrink-0 z-50">
     <div class="max-w-[1400px] mx-auto px-6 flex items-center justify-between w-full">
-            <a href="landing.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
-        <div class="flex-1 flex items-center justify-end gap-3">
+        <div class="flex items-center gap-3">
+            <button id="sidebarToggle" class="md:hidden p-1 text-gray-600 hover:text-[#1e3a5f] transition-colors" aria-label="Toggle Sidebar">
+                <span class="material-symbols-outlined text-[24px]">menu</span>
+            </button>
+            <a href="index.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
+        </div>
+        <div class="flex items-center gap-3">
             <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1" title="Toggle Dark Mode">
                 <span class="material-symbols-outlined text-[20px]">dark_mode</span>
             </button>
@@ -126,9 +131,11 @@ while ($row = $chart_query->fetch_assoc()) {
     </div>
 </nav>
 
-<div class="flex flex-grow">
+<div class="flex flex-grow relative">
+    <!-- Mobile overlay -->
+    <div id="sidebarOverlay" class="hidden fixed inset-0 bg-black/40 z-40 md:hidden"></div>
     <!-- SIDEBAR -->
-    <aside class="w-64 bg-white border-r border-gray-200 flex flex-col shrink-0 min-h-full">
+    <aside id="adminSidebar" class="w-64 bg-white border-r border-gray-200 flex flex-col shrink-0 min-h-full hidden md:flex fixed md:relative z-50 md:z-auto inset-y-0 left-0">
         <div class="p-6 flex items-center gap-3 border-b border-gray-100">
             <div class="w-10 h-10 rounded-full bg-slate-300 overflow-hidden">
                 <img src="https://ui-avatars.com/api/?name=Warehouse+Admin" alt="Admin">
@@ -158,7 +165,7 @@ while ($row = $chart_query->fetch_assoc()) {
     </aside>
 
     <!-- MAIN CONTENT -->
-    <main class="flex-grow p-8">
+    <main class="flex-grow p-4 md:p-8">
         <div class="mb-8">
             <h1 class="text-2xl font-bold text-[#1e3a5f]">Dashboard Admin - Manajemen Pasok Suku Cadang</h1>
             <p class="text-sm text-slate-500">Ringkasan operasional sistem pasok suku cadang, data inventaris, dan peringatan stok.</p>
@@ -210,8 +217,8 @@ while ($row = $chart_query->fetch_assoc()) {
             <div class="p-6 border-b border-gray-100">
                 <h2 class="font-bold text-lg text-slate-800">Pesanan Penjualan Terbaru</h2>
             </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm text-left whitespace-nowrap">
+            <div>
+                <table class="w-full text-sm text-left">
                     <thead class="bg-slate-50 text-slate-500">
                     <tr>
                         <th class="px-6 py-3 font-semibold">ID PESANAN</th>
@@ -225,13 +232,13 @@ while ($row = $chart_query->fetch_assoc()) {
                     <?php if ($recent_sales_query->num_rows > 0): ?>
                         <?php while ($row = $recent_sales_query->fetch_assoc()): ?>
                             <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="px-6 py-4 font-medium text-slate-900">
+                                <td class="px-6 py-4 font-medium text-slate-900" data-label="ID Pesanan">
                                     #<?= htmlspecialchars($row['salesorders_id']) ?></td>
-                                <td class="px-6 py-4 text-slate-700"><?= htmlspecialchars($row['user'] ?? 'Guest') ?></td>
-                                <td class="px-6 py-4 text-slate-500"><?= date('d M Y, H:i', strtotime($row['order_date'])) ?></td>
-                                <td class="px-6 py-4 font-bold text-green-600">
+                                <td class="px-6 py-4 text-slate-700" data-label="Pelanggan"><?= htmlspecialchars($row['user'] ?? 'Guest') ?></td>
+                                <td class="px-6 py-4 text-slate-500" data-label="Tanggal"><?= date('d M Y, H:i', strtotime($row['order_date'])) ?></td>
+                                <td class="px-6 py-4 font-bold text-green-600" data-label="Total">
                                     Rp <?= number_format($row['total_amount'], 2, ',', '.') ?></td>
-                                <td class="px-6 py-4">
+                                <td class="px-6 py-4" data-label="Metode Bayar">
                                 <span class="px-3 py-1 bg-blue-50 text-blue-700 rounded-full text-xs font-medium border border-blue-100">
                                     <?= htmlspecialchars($row['payment_method'] ?? '-') ?>
                                 </span>
@@ -254,8 +261,8 @@ while ($row = $chart_query->fetch_assoc()) {
             <div class="p-6 border-b border-gray-100">
                 <h2 class="font-bold text-lg text-slate-800">Pesanan Pembelian Terbaru (Purchase Order)</h2>
             </div>
-            <div class="overflow-x-auto">
-                <table class="w-full text-sm text-left whitespace-nowrap">
+            <div>
+                <table class="w-full text-sm text-left">
                     <thead class="bg-slate-50 text-slate-500">
                     <tr>
                         <th class="px-6 py-3 font-semibold">ID PO</th>
@@ -269,13 +276,13 @@ while ($row = $chart_query->fetch_assoc()) {
                     <?php if ($recent_purchase_query->num_rows > 0): ?>
                         <?php while ($row = $recent_purchase_query->fetch_assoc()): ?>
                             <tr class="hover:bg-slate-50 transition-colors">
-                                <td class="px-6 py-4 font-medium text-slate-900">
+                                <td class="px-6 py-4 font-medium text-slate-900" data-label="ID PO">
                                     #<?= htmlspecialchars($row['purchaseorders_id']) ?></td>
-                                <td class="px-6 py-4 text-slate-700"><?= htmlspecialchars($row['supplier'] ?? 'Unknown') ?></td>
-                                <td class="px-6 py-4 text-slate-500"><?= date('d M Y', strtotime($row['order_date'])) ?></td>
-                                <td class="px-6 py-4 font-bold text-orange-600">
+                                <td class="px-6 py-4 text-slate-700" data-label="Supplier"><?= htmlspecialchars($row['supplier'] ?? 'Unknown') ?></td>
+                                <td class="px-6 py-4 text-slate-500" data-label="Tanggal"><?= date('d M Y', strtotime($row['order_date'])) ?></td>
+                                <td class="px-6 py-4 font-bold text-orange-600" data-label="Total">
                                     Rp <?= number_format($row['total_amount'], 2, ',', '.') ?></td>
-                                <td class="px-6 py-4 text-slate-500 truncate max-w-xs"><?= htmlspecialchars($row['notes'] ?? '-') ?></td>
+                                <td class="px-6 py-4 text-slate-500" data-label="Catatan"><?= htmlspecialchars($row['notes'] ?? '-') ?></td>
                             </tr>
                         <?php endwhile; ?>
                     <?php else: ?>

@@ -15,14 +15,12 @@ body {
   font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
 }
 
-/* Nav & active state */
 .nav-active {
   border-bottom: 2px solid #1e3a5f;
   padding-bottom: 2px;
   font-weight: 600;
 }
 
-/* Utilities */
 .geo-pattern {
   background-color: #f9f9f9;
   background-image: radial-gradient(#e2e2e2 1px, transparent 1px);
@@ -41,7 +39,6 @@ body {
   scrollbar-width: none;
 }
 
-/* Products Card Animations */
 .product-card {
   transition: all 0.3s ease;
   border: 1px solid #e5e7eb;
@@ -68,7 +65,6 @@ body {
 .product-card:nth-child(2) { animation-delay: 0.1s; }
 .product-card:nth-child(3) { animation-delay: 0.15s; }
 
-/* Contacts Map Element */
 .map-placeholder {
   background: linear-gradient(135deg, #c8d6e5 0%, #a8bfd4 40%, #8fafc8 100%);
   position: relative;
@@ -122,7 +118,6 @@ body {
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-/* ── Dark Mode ── */
 html.dark { color-scheme: dark; }
 
 html.dark,
@@ -156,7 +151,6 @@ html.dark .text-gray-400 { color: #6b7280 !important; }
 
 html.dark .text-gray-300 { color: #4b5563 !important; }
 
-/* Admin panel text readability in dark mode */
 html.dark .text-slate-900,
 html.dark .text-slate-800 { color: #e5e7eb !important; }
 html.dark .text-slate-700 { color: #e5e7eb !important; }
@@ -198,18 +192,60 @@ html.dark .text-green-600 { color: #4ade80 !important; }
 html.dark .text-blue-600 { color: #60a5fa !important; }
 html.dark .text-yellow-600 { color: #facc15 !important; }
 
-/* Keep images from getting too dark in dark mode */
 html.dark .mix-blend-multiply,
 html.dark [class*="mix-blend-"] {
   mix-blend-mode: normal !important;
 }
 
-/* Lighten icon colors inside dark info/service card circles */
 html.dark .bg-blue-50 .material-symbols-outlined {
   color: #ffffff !important;
 }
 
-/* ── Back to Top ── */
+@media (max-width: 767px) {
+  table.w-full {
+    border: 0;
+  }
+  table.w-full thead {
+    display: none;
+  }
+  table.w-full tbody tr,
+  table.w-full tfoot tr {
+    display: block;
+    margin-bottom: 0.75rem;
+    border: 1px solid #e5e7eb;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    background: transparent;
+  }
+  table.w-full tbody td,
+  table.w-full tfoot td {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem;
+    border: none;
+    border-bottom: 1px solid #f3f4f6;
+    text-align: right;
+    white-space: normal !important;
+    word-break: break-word;
+  }
+  table.w-full tbody td:last-child,
+  table.w-full tfoot td:last-child {
+    border-bottom: none;
+  }
+  table.w-full tbody td::before,
+  table.w-full tfoot td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    color: #6b7280;
+    margin-right: 1rem;
+    text-align: left;
+    flex-shrink: 0;
+  }
+}
+
 #backToTop {
   position: fixed; bottom: 24px; right: 24px;
   width: 44px; height: 44px;

@@ -64,18 +64,17 @@ if ($resultNew && $resultNew->num_rows > 0) {
 </head>
 <body class="bg-white text-gray-800 antialiased min-h-screen flex flex-col font-['DM_Sans']">
 
-<nav class="border-b border-gray-200 bg-white sticky top-0 z-50 h-14 flex items-center">
-    <div class="max-w-6xl mx-auto px-6 flex items-center w-full">
-        <div class="flex-1 flex justify-start">
-            <a href="landing.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
-        </div>
-        <div class="flex-1 hidden md:flex justify-center items-center gap-8 text-sm text-gray-600 font-medium">
+<nav class="border-b border-gray-200 bg-white sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
+        <a href="index.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
+        <div class="hidden md:flex items-center gap-8 text-sm text-gray-600 font-medium">
             <a href="products.php" class="hover:text-[#1e3a5f] transition-colors">Produk</a>
             <a href="industries.php" class="hover:text-[#1e3a5f] transition-colors">Sektor Industri</a>
             <a href="contacts.php" class="hover:text-[#1e3a5f] transition-colors">Kontak</a>
         </div>
-        <div class="flex-1 flex items-center justify-end gap-3">
-            <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1" title="Toggle Dark Mode">
+        <div class="flex items-center gap-2">
+            <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1"
+                    title="Toggle Dark Mode">
                 <span class="material-symbols-outlined text-[20px]">dark_mode</span>
             </button>
             <?php if ($logged_in): ?>
@@ -111,29 +110,48 @@ if ($resultNew && $resultNew->num_rows > 0) {
                 <a href="login.php"
                    class="border border-gray-300 text-sm font-medium px-4 py-1.5 rounded-md text-gray-700 hover:bg-gray-50 transition">Masuk</a>
             <?php endif; ?>
+            <button id="hamburger" class="md:hidden p-1 text-gray-600 hover:text-[#1e3a5f] transition-colors"
+                    aria-label="Menu">
+                <span class="material-symbols-outlined text-[24px]">menu</span>
+            </button>
+        </div>
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 bg-white">
+        <div class="px-6 py-4 flex flex-col gap-3 text-sm text-gray-600 font-medium">
+            <a href="products.php" class="hover:text-[#1e3a5f] transition-colors py-1">Produk</a>
+            <a href="industries.php" class="hover:text-[#1e3a5f] transition-colors py-1">Sektor Industri</a>
+            <a href="contacts.php" class="hover:text-[#1e3a5f] transition-colors py-1">Kontak</a>
         </div>
     </div>
 </nav>
 
 <main class="flex-grow">
-    <section class="relative w-full bg-gray-50 border-b border-gray-200 overflow-hidden" style="min-height:480px;">
-        <div class="carousel absolute inset-0">
-            <div class="img-wrap flex h-full transition-transform duration-500 case-in-out">
-                <img class="w-full h-full object-cover flex-shrink-0" src="img/industri1.jpg.jpeg" alt="Image 1">
-                <img class="w-full h-full object-cover flex-shrink-0" src="img/industri2.jpg.jpeg" alt="Image 2">
-                <img class="w-full h-full object-cover flex-shrink-0" src="img/industri3.jpg.jpeg" alt="Image 3">
-                <img class="w-full h-full object-cover flex-shrink-0" src="img/industri4.jpg.jpeg" alt="Image 4">
-                <img class="w-full h-full object-cover flex-shrink-0" src="img/industri5.jpg.jpeg" alt="Image 5">
+    <section class="relative w-full bg-gray-900 border-b border-gray-200 overflow-hidden" style="min-height:480px;">
+        <div class="carousel absolute inset-0 z-0">
+            <div class="img-wrap flex h-full transition-transform duration-500 ease-in-out">
+                <img class="w-full h-full object-cover flex-shrink-0" src="img/wmremove-transformed.jpeg" alt="Image 1">
+                <img class="w-full h-full object-cover flex-shrink-0" src="img/wmremove-transformed%20(1).jpeg"
+                     alt="Image 2">
+                <img class="w-full h-full object-cover flex-shrink-0" src="img/gambar3.png" alt="Image 3">
             </div>
         </div>
-        <div class="absolute inset-0 z-0 opacity-10"
-             style="background-image: radial-gradient(#00346f 1px, transparent 1px); background-size: 24px 24px;"></div>
-        <div class="max-w-6xl mx-auto px-6 py-24 relative z-10 flex flex-col items-center text-center">
-            <span class="font-medium text-sm text-[#1e3a5f] uppercase tracking-widest mb-4">Sistem Pasok Suku Cadang Industri</span>
-            <h1 class="text-5xl font-bold text-gray-900 mb-6 max-w-4xl">Supplier Suku Cadang Industri<br>Terintegrasi
-                &amp; Andal.</h1>
-            <p class="text-lg text-gray-600 mb-12 max-w-2xl">Platform e-commerce pengadaan suku cadang dengan manajemen
-                stok real-time, data teknis lengkap, dan alat pengadaan grosir untuk efisiensi bisnis Anda.</p>
+
+        <div class="absolute inset-0 z-10 bg-black/60"></div>
+
+        <div class="absolute inset-0 z-10 opacity-20"
+             style="background-image: radial-gradient(#ffffff 1px, transparent 1px); background-size: 24px 24px;"></div>
+
+        <div class="max-w-6xl mx-auto px-6 py-24 relative z-20 flex flex-col items-center text-center">
+            <span class="font-medium text-sm text-blue-300 uppercase tracking-widest mb-4 drop-shadow-md">Sistem Pasok Suku Cadang Industri</span>
+
+            <h1 class="text-3xl md:text-5xl font-bold text-white mb-6 max-w-4xl drop-shadow-lg">
+                Supplier Suku Cadang Industri<br>Terintegrasi & Andal.
+            </h1>
+
+            <p class="text-lg text-gray-200 mb-12 max-w-2xl drop-shadow-md">
+                Platform e-commerce pengadaan suku cadang dengan manajemen stok real-time, data teknis lengkap, dan alat
+                pengadaan grosir untuk efisiensi bisnis Anda.
+            </p>
         </div>
     </section>
 
@@ -174,7 +192,6 @@ if ($resultNew && $resultNew->num_rows > 0) {
             </div>
         </div>
     </section>
-
 
 
     <section class="max-w-6xl mx-auto px-6 py-16 bg-gray-50 rounded-xl mb-16">
@@ -332,7 +349,7 @@ if ($resultNew && $resultNew->num_rows > 0) {
 
 
 <button id="backToTop" aria-label="Back to top">
-  <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+    <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
 </button>
 <script src="main.js"></script>
 </body>

@@ -19,7 +19,23 @@ if (wrap) {
   document.addEventListener("DOMContentLoaded", startCarousel);
 }
 
-// Dark Mode Toggle
+document.getElementById('hamburger')?.addEventListener('click', function() {
+  const menu = document.getElementById('mobileMenu');
+  if (menu) menu.classList.toggle('hidden');
+});
+
+document.getElementById('sidebarToggle')?.addEventListener('click', function() {
+  const sidebar = document.getElementById('adminSidebar');
+  if (sidebar) sidebar.classList.toggle('hidden');
+  const overlay = document.getElementById('sidebarOverlay');
+  if (overlay) overlay.classList.toggle('hidden');
+});
+document.getElementById('sidebarOverlay')?.addEventListener('click', function() {
+  const sidebar = document.getElementById('adminSidebar');
+  if (sidebar) sidebar.classList.toggle('hidden');
+  this.classList.toggle('hidden');
+});
+
 (function() {
   const toggle = document.getElementById('darkToggle');
   const html = document.documentElement;

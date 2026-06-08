@@ -132,56 +132,56 @@ if (!empty($_SESSION['cart'])) {
 </head>
 <body class="bg-slate-50 min-h-screen flex flex-col">
 
-<nav class="border-b border-gray-200 bg-white sticky top-0 z-50 h-14 flex items-center">
-<div class="max-w-6xl mx-auto px-6 flex items-center w-full">
-    <!-- Kiri -->
-    <div class="flex-1 flex justify-start">
-        <a href="landing.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
-    </div>
-    <!-- Tengah -->
-    <div class="flex-1 hidden md:flex justify-center items-center gap-8 text-sm text-gray-600 font-medium">
-        <a href="products.php" class="hover:text-[#1e3a5f] transition-colors">Produk</a>
-        <a href="industries.php" class="hover:text-[#1e3a5f] transition-colors">Sektor Industri</a>
-        <a href="contacts.php" class="hover:text-[#1e3a5f] transition-colors">Kontak</a>
-    </div>
-    <!-- Kanan -->
-    <div class="flex-1 flex items-center justify-end gap-3">
-        <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1" title="Toggle Dark Mode">
-            <span class="material-symbols-outlined text-[20px]">dark_mode</span>
-        </button>
-
-        <?php if ($logged_in): ?>
-            <!-- CSS-Only Dropdown User Menu -->
-            <div class="relative group">
-                <button class="flex items-center gap-2 border border-gray-300 rounded-full px-3 py-1.5 text-sm font-medium text-gray-700 bg-white group-hover:bg-gray-50 transition cursor-default">
-                    <span class="material-symbols-outlined text-[20px] text-[#1e3a5f]" style="font-variation-settings:'FILL' 1;">account_circle</span>
-                    <span class="hidden md:block"><?= htmlspecialchars($username) ?></span>
-                    <span class="material-symbols-outlined text-[16px] text-gray-400 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
-                </button>
-                <div class="absolute right-0 top-full pt-2 w-64 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
-                    <div class="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden">
-                        <div class="p-5 flex items-center gap-3">
-                            <span class="material-symbols-outlined text-[40px] text-[#1e3a5f] bg-blue-50 p-2 rounded-full" style="font-variation-settings:'FILL' 1;">account_circle</span>
-                            <div class="min-w-0">
-                                <p class="text-sm font-semibold text-gray-800 truncate"><?= htmlspecialchars($username) ?></p>
-                                <?php if ($email): ?>
-                                    <p class="text-xs text-gray-500 truncate"><?= htmlspecialchars($email) ?></p>
-                                <?php endif; ?>
+<nav class="border-b border-gray-200 bg-white sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
+        <a href="index.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
+        <div class="hidden md:flex items-center gap-8 text-sm text-gray-600 font-medium">
+            <a href="products.php" class="hover:text-[#1e3a5f] transition-colors">Produk</a>
+            <a href="industries.php" class="hover:text-[#1e3a5f] transition-colors">Sektor Industri</a>
+            <a href="contacts.php" class="hover:text-[#1e3a5f] transition-colors">Kontak</a>
+        </div>
+        <div class="flex items-center gap-2">
+            <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1" title="Toggle Dark Mode">
+                <span class="material-symbols-outlined text-[20px]">dark_mode</span>
+            </button>
+            <?php if ($logged_in): ?>
+                <div class="relative group">
+                    <button class="flex items-center gap-2 border border-gray-300 rounded-full px-3 py-1.5 text-sm font-medium text-gray-700 bg-white group-hover:bg-gray-50 transition cursor-default">
+                        <span class="material-symbols-outlined text-[20px] text-[#1e3a5f]" style="font-variation-settings:'FILL' 1;">account_circle</span>
+                        <span class="hidden md:block"><?= htmlspecialchars($username) ?></span>
+                        <span class="material-symbols-outlined text-[16px] text-gray-400 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
+                    </button>
+                    <div class="absolute right-0 top-full pt-2 w-64 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
+                        <div class="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden">
+                            <div class="p-5 flex items-center gap-3">
+                                <span class="material-symbols-outlined text-[40px] text-[#1e3a5f] bg-blue-50 p-2 rounded-full" style="font-variation-settings:'FILL' 1;">account_circle</span>
+                                <div class="min-w-0">
+                                    <p class="text-sm font-semibold text-gray-800 truncate"><?= htmlspecialchars($username) ?></p>
+                                    <?php if ($email): ?><p class="text-xs text-gray-500 truncate"><?= htmlspecialchars($email) ?></p><?php endif; ?>
+                                </div>
                             </div>
+                            <div class="border-t border-gray-200"></div>
+                            <a href="logout.php" class="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors">
+                                <span class="material-symbols-outlined text-[20px]">logout</span> Logout
+                            </a>
                         </div>
-                        <div class="border-t border-gray-200"></div>
-                        <a href="logout.php" class="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors">
-                            <span class="material-symbols-outlined text-[20px]">logout</span>
-                            Logout
-                        </a>
                     </div>
                 </div>
-            </div>
-        <?php else: ?>
-            <a href="login.php" class="border border-gray-300 text-sm font-medium px-4 py-1.5 rounded-md text-gray-700 hover:bg-gray-50 transition">Masuk</a>
-        <?php endif; ?>
+            <?php else: ?>
+                <a href="login.php" class="border border-gray-300 text-sm font-medium px-4 py-1.5 rounded-md text-gray-700 hover:bg-gray-50 transition">Masuk</a>
+            <?php endif; ?>
+            <button id="hamburger" class="md:hidden p-1 text-gray-600 hover:text-[#1e3a5f] transition-colors" aria-label="Menu">
+                <span class="material-symbols-outlined text-[24px]">menu</span>
+            </button>
+        </div>
     </div>
-</div>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 bg-white">
+        <div class="px-6 py-4 flex flex-col gap-3 text-sm text-gray-600 font-medium">
+            <a href="products.php" class="hover:text-[#1e3a5f] transition-colors py-1">Produk</a>
+            <a href="industries.php" class="hover:text-[#1e3a5f] transition-colors py-1">Sektor Industri</a>
+            <a href="contacts.php" class="hover:text-[#1e3a5f] transition-colors py-1">Kontak</a>
+        </div>
+    </div>
 </nav>
 
 <main class="flex-grow max-w-4xl mx-auto w-full p-6">
@@ -200,44 +200,50 @@ if (!empty($_SESSION['cart'])) {
             <a href="products.php" class="inline-block mt-4 bg-[#1e3a5f] text-white px-6 py-2 rounded font-medium hover:bg-[#152a46]">Lanjut Belanja</a>
         </div>
     <?php else: ?>
-        <div class="bg-white rounded-lg shadow-sm border overflow-hidden">
-            <table class="w-full text-sm">
-                <thead class="bg-gray-50 border-b text-left text-gray-500">
-                    <tr>
-                        <th class="px-6 py-3">Nama Item</th>
-                        <th class="px-6 py-3">Qty</th>
-                        <th class="px-6 py-3">Harga</th>
-                        <th class="px-6 py-3">Subtotal</th>
-                        <th class="px-6 py-3">Aksi</th>
-                    </tr>
-                </thead>
-                <tbody>
-                <?php foreach ($_SESSION['cart'] as $id => $item): ?>
-                    <tr class="border-b last:border-0">
-                        <td class="px-6 py-4 font-medium text-gray-800"><?= htmlspecialchars($item['name']) ?></td>
-                        <td class="px-6 py-4">
-                            <form method="POST" class="flex items-center gap-2">
-                                <input type="hidden" name="spareparts_id" value="<?= htmlspecialchars((string)$id) ?>">
-                                <input type="number" name="qty" value="<?= (int)$item['qty'] ?>" min="1" class="w-16 border p-1 rounded text-center">
-                                <button type="submit" name="update_qty" class="text-xs text-blue-600 underline">Perbarui</button>
-                            </form>
-                        </td>
-                        <td class="px-6 py-4">Rp <?= number_format($item['price'], 0, ',', '.') ?></td>
-                        <td class="px-6 py-4 font-bold">Rp <?= number_format($item['price'] * $item['qty'], 0, ',', '.') ?></td>
-                        <td class="px-6 py-4">
-                            <a href="?remove=<?= (int)$id ?>" class="text-red-500 text-sm underline" onclick="return confirm('Hapus item ini dari keranjang?')">Hapus</a>
-                        </td>
-                    </tr>
-                <?php endforeach; ?>
-                </tbody>
-                <tfoot>
-                    <tr class="bg-gray-50">
-                        <td colspan="3" class="px-6 py-4 text-right font-bold">Total Belanja</td>
-                        <td class="px-6 py-4 font-bold text-[#1e3a5f]">Rp <?= number_format($grand_total, 0, ',', '.') ?></td>
-                        <td></td>
-                    </tr>
-                </tfoot>
-            </table>
+        <div class="bg-white rounded-lg shadow-sm border divide-y overflow-x-auto">
+            <div class="hidden md:grid md:grid-cols-[2fr_140px_140px_160px_70px] px-6 py-3 bg-gray-50 text-left text-gray-500 text-sm font-medium">
+                <div>Nama Item</div>
+                <div>Qty</div>
+                <div>Harga</div>
+                <div>Subtotal</div>
+                <div>Aksi</div>
+            </div>
+            <?php foreach ($_SESSION['cart'] as $id => $item): ?>
+                <div class="grid grid-cols-1 md:grid-cols-[2fr_140px_140px_160px_70px] gap-1 md:gap-0 px-6 py-4 items-center hover:bg-gray-50/50">
+                    <div>
+                        <span class="md:hidden text-xs font-bold text-gray-500 uppercase block mb-0.5">Nama Item</span>
+                        <span class="font-medium text-gray-800 text-sm"><?= htmlspecialchars($item['name']) ?></span>
+                    </div>
+                    <div>
+                        <span class="md:hidden text-xs font-bold text-gray-500 uppercase block mb-0.5">Qty</span>
+                        <form method="POST" class="flex items-center gap-1.5">
+                            <input type="hidden" name="spareparts_id" value="<?= htmlspecialchars((string)$id) ?>">
+                            <input type="number" name="qty" value="<?= (int)$item['qty'] ?>" min="1" class="w-12 border p-1 rounded text-center text-sm">
+                            <button type="submit" name="update_qty" class="text-xs text-blue-600 underline whitespace-nowrap hover:text-blue-800">Perbarui</button>
+                        </form>
+                    </div>
+                    <div class="whitespace-nowrap">
+                        <span class="md:hidden text-xs font-bold text-gray-500 uppercase block mb-0.5">Harga</span>
+                        <span class="text-sm">Rp <?= number_format($item['price'], 0, ',', '.') ?></span>
+                    </div>
+                    <div class="whitespace-nowrap">
+                        <span class="md:hidden text-xs font-bold text-gray-500 uppercase block mb-0.5">Subtotal</span>
+                        <span class="font-bold text-sm text-gray-900">Rp <?= number_format($item['price'] * $item['qty'], 0, ',', '.') ?></span>
+                    </div>
+                    <div>
+                        <span class="md:hidden text-xs font-bold text-gray-500 uppercase block mb-0.5">Aksi</span>
+                        <a href="?remove=<?= (int)$id ?>" class="text-red-500 text-sm underline hover:text-red-700" onclick="return confirm('Hapus item ini dari keranjang?')">Hapus</a>
+                    </div>
+                </div>
+            <?php endforeach; ?>
+            <div class="grid grid-cols-1 md:grid-cols-[2fr_140px_140px_160px_70px] gap-1 md:gap-0 px-6 py-4 bg-gray-50 items-center">
+                <div class="md:col-span-3 md:text-right font-bold text-sm md:pr-4">Total Belanja</div>
+                <div class="whitespace-nowrap">
+                    <span class="md:hidden text-xs font-bold text-gray-500 uppercase block mb-0.5">Subtotal</span>
+                    <span class="font-bold text-[#1e3a5f] text-base">Rp <?= number_format($grand_total, 0, ',', '.') ?></span>
+                </div>
+                <div></div>
+            </div>
         </div>
 
         <form method="POST" class="bg-white rounded-lg shadow-sm border p-6 mt-6">
@@ -268,7 +274,7 @@ if (!empty($_SESSION['cart'])) {
 </main>
 
 <button id="backToTop" aria-label="Back to top">
-  <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+    <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
 </button>
 <script src="main.js"></script>
 </body>

@@ -65,23 +65,15 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 <body class="bg-white text-gray-800 antialiased min-h-screen flex flex-col">
 
 <!-- ═══ NAVBAR ═══ -->
-<nav class="border-b border-gray-200 bg-white sticky top-0 z-50 h-14 flex items-center">
-    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between w-full relative">
-
-        <!-- Kiri -->
-        <div class="flex-shrink-0 flex justify-start">
-            <a href="landing.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
-        </div>
-
-        <!-- Tengah (Absolute Centered) -->
-        <div class="hidden md:flex absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 items-center gap-8 text-sm text-gray-600 font-medium">
+<nav class="border-b border-gray-200 bg-white sticky top-0 z-50">
+    <div class="max-w-6xl mx-auto px-6 flex items-center justify-between h-14">
+        <a href="index.php" class="text-[#1e3a5f] font-bold text-xl tracking-tight">IndustrialHub</a>
+        <div class="hidden md:flex items-center gap-8 text-sm text-gray-600 font-medium">
             <a href="products.php" class="hover:text-[#1e3a5f] transition-colors">Produk</a>
             <a href="industries.php" class="hover:text-[#1e3a5f] transition-colors">Sektor Industri</a>
             <a href="contacts.php" class="hover:text-[#1e3a5f] transition-colors">Kontak</a>
         </div>
-
-        <!-- Kanan -->
-        <div class="flex-shrink-0 flex items-center justify-end gap-3">
+        <div class="flex items-center gap-2">
             <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1" title="Toggle Dark Mode">
                 <span class="material-symbols-outlined text-[20px]">dark_mode</span>
             </button>
@@ -98,15 +90,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                                 <span class="material-symbols-outlined text-[40px] text-[#1e3a5f] bg-blue-50 p-2 rounded-full" style="font-variation-settings:'FILL' 1;">account_circle</span>
                                 <div class="min-w-0">
                                     <p class="text-sm font-semibold text-gray-800 truncate"><?= htmlspecialchars($username_sess) ?></p>
-                                    <?php if ($email_sess): ?>
-                                        <p class="text-xs text-gray-500 truncate"><?= htmlspecialchars($email_sess) ?></p>
-                                    <?php endif; ?>
+                                    <?php if ($email_sess): ?><p class="text-xs text-gray-500 truncate"><?= htmlspecialchars($email_sess) ?></p><?php endif; ?>
                                 </div>
                             </div>
                             <div class="border-t border-gray-200"></div>
                             <a href="logout.php" class="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors">
-                                <span class="material-symbols-outlined text-[20px]">logout</span>
-                                Logout
+                                <span class="material-symbols-outlined text-[20px]">logout</span> Logout
                             </a>
                         </div>
                     </div>
@@ -114,8 +103,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             <?php else: ?>
                 <a href="login.php" class="border border-gray-300 text-sm font-medium px-4 py-1.5 rounded-md text-gray-700 hover:bg-gray-50 transition">Login</a>
             <?php endif; ?>
+            <button id="hamburger" class="md:hidden p-1 text-gray-600 hover:text-[#1e3a5f] transition-colors" aria-label="Menu">
+                <span class="material-symbols-outlined text-[24px]">menu</span>
+            </button>
         </div>
-
+    </div>
+    <div id="mobileMenu" class="hidden md:hidden border-t border-gray-200 bg-white">
+        <div class="px-6 py-4 flex flex-col gap-3 text-sm text-gray-600 font-medium">
+            <a href="products.php" class="hover:text-[#1e3a5f] transition-colors py-1">Produk</a>
+            <a href="industries.php" class="hover:text-[#1e3a5f] transition-colors py-1">Sektor Industri</a>
+            <a href="contacts.php" class="hover:text-[#1e3a5f] transition-colors py-1">Kontak</a>
+        </div>
     </div>
 </nav>
 
