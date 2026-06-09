@@ -17,8 +17,6 @@ if ($conn->connect_error) {
 
 $new_arrivals = [];
 
-
-
 $sqlNew = "
     SELECT name, sku, selling_price, stock_qty, image_url, created_at
     FROM spare_parts

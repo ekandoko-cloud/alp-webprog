@@ -31,44 +31,52 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
         <div class="hidden md:flex items-center gap-8 text-sm text-gray-600 font-medium absolute left-1/2 -translate-x-1/2">
             <a href="products.php" class="hover:text-[#1e3a5f] transition-colors">Produk</a>
             <a href="industries.php" class="hover:text-[#1e3a5f] transition-colors">Sektor Industri</a>
-
-            <a href="contacts.php" class="text-[#1e3a5f] font-bold underline decoration-2 underline-offset-8 transition-colors">Kontak</a>
+            <a href="contacts.php"
+               class="text-[#1e3a5f] font-bold underline decoration-2 underline-offset-8 transition-colors">Kontak</a>
         </div>
 
         <div class="flex items-center gap-2">
-            <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1" title="Toggle Dark Mode">
+            <button id="darkToggle" class="text-gray-600 hover:text-[#1e3a5f] transition-colors p-1"
+                    title="Toggle Dark Mode">
                 <span class="material-symbols-outlined text-[20px]">dark_mode</span>
             </button>
             <?php if ($logged_in): ?>
                 <div class="relative group">
                     <button class="flex items-center gap-2 border border-gray-300 rounded-full px-3 py-1.5 text-sm font-medium text-gray-700 bg-white group-hover:bg-gray-50 transition cursor-default">
-                        <span class="material-symbols-outlined text-[20px] text-[#1e3a5f]" style="font-variation-settings:'FILL' 1;">account_circle</span>
+                        <span class="material-symbols-outlined text-[20px] text-[#1e3a5f]"
+                              style="font-variation-settings:'FILL' 1;">account_circle</span>
                         <span class="hidden md:block"><?= htmlspecialchars($username) ?></span>
                         <span class="material-symbols-outlined text-[16px] text-gray-400 group-hover:rotate-180 transition-transform duration-200">expand_more</span>
                     </button>
                     <div class="absolute right-0 top-full pt-2 w-64 opacity-0 invisible translate-y-1 group-hover:opacity-100 group-hover:visible group-hover:translate-y-0 transition-all duration-200 z-50">
                         <div class="bg-white border border-gray-200 rounded-xl shadow-lg overflow-hidden">
                             <div class="p-5 flex items-center gap-3">
-                                <span class="material-symbols-outlined text-[40px] text-[#1e3a5f] bg-blue-50 p-2 rounded-full" style="font-variation-settings:'FILL' 1;">account_circle</span>
+                                <span class="material-symbols-outlined text-[40px] text-[#1e3a5f] bg-blue-50 p-2 rounded-full"
+                                      style="font-variation-settings:'FILL' 1;">account_circle</span>
                                 <div class="min-w-0">
                                     <p class="text-sm font-semibold text-gray-800 truncate"><?= htmlspecialchars($username) ?></p>
-                                    <?php if ($email): ?><p class="text-xs text-gray-500 truncate"><?= htmlspecialchars($email) ?></p><?php endif; ?>
+                                    <?php if ($email): ?><p
+                                            class="text-xs text-gray-500 truncate"><?= htmlspecialchars($email) ?></p><?php endif; ?>
                                 </div>
                             </div>
                             <div class="border-t border-gray-200"></div>
-                            <a href="logout.php" class="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors">
+                            <a href="logout.php"
+                               class="flex items-center gap-3 px-5 py-3.5 text-sm font-medium text-red-600 hover:bg-red-50 transition-colors">
                                 <span class="material-symbols-outlined text-[20px]">logout</span> Logout
                             </a>
                         </div>
                     </div>
                 </div>
             <?php else: ?>
-                <a href="login.php" class="border border-gray-300 text-sm font-medium px-4 py-1.5 rounded-md text-gray-700 hover:bg-gray-50 transition">Masuk</a>
+                <a href="login.php"
+                   class="border border-gray-300 text-sm font-medium px-4 py-1.5 rounded-md text-gray-700 hover:bg-gray-50 transition">Masuk</a>
             <?php endif; ?>
-            <a href="cartmenu.php" class="bg-[#1e3a5f] text-white text-sm font-medium px-3 py-1.5 rounded-md flex items-center gap-1 hover:bg-[#162d4a] transition">
+            <a href="cartmenu.php"
+               class="bg-[#1e3a5f] text-white text-sm font-medium px-3 py-1.5 rounded-md flex items-center gap-1 hover:bg-[#162d4a] transition">
                 <span class="material-symbols-outlined text-[18px]">shopping_cart</span><span class="hidden sm:inline">Keranjang</span>
             </a>
-            <button id="hamburger" class="md:hidden p-1 text-gray-600 hover:text-[#1e3a5f] transition-colors" aria-label="Menu">
+            <button id="hamburger" class="md:hidden p-1 text-gray-600 hover:text-[#1e3a5f] transition-colors"
+                    aria-label="Menu">
                 <span class="material-symbols-outlined text-[24px]">menu</span>
             </button>
         </div>
@@ -92,7 +100,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
     </p>
 
     <div class="flex flex-col lg:flex-row gap-6">
-        
+
         <div class="flex-1 border border-gray-200 rounded-xl p-8">
             <h2 class="text-xl font-bold text-[#1e3a5f] mb-6">Formulir Pertanyaan</h2>
             <form action="https://formsubmit.co/ajax/ekandoko@student.ciputra.ac.id" method="POST"
@@ -141,7 +149,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
             </form>
         </div>
 
-        
+
         <div class="lg:w-96 flex flex-col gap-6">
             <div class="border border-gray-200 rounded-xl p-6">
                 <div class="flex items-center gap-2 mb-3">
@@ -149,7 +157,8 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
                     <h3 class="text-lg font-bold text-[#1e3a5f]">Dukungan Teknis &amp; Pengadaan</h3>
                 </div>
                 <p class="text-sm text-gray-600 mb-4 leading-relaxed">
-                    Untuk bantuan terkait sistem pasok suku cadang, pemesanan, atau konsultasi teknis, silakan hubungi tim kami.
+                    Untuk bantuan terkait sistem pasok suku cadang, pemesanan, atau konsultasi teknis, silakan hubungi
+                    tim kami.
                 </p>
                 <div class="border border-gray-200 rounded-lg px-4 py-3 flex items-center gap-3 mb-3">
                     <span class="material-symbols-outlined text-gray-400">call</span>
@@ -188,7 +197,7 @@ $email = isset($_SESSION['email']) ? $_SESSION['email'] : '';
 </footer>
 
 <button id="backToTop" aria-label="Back to top">
-  <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
+    <span class="material-symbols-outlined text-[20px]">arrow_upward</span>
 </button>
 <script src="main.js"></script>
 </body>

@@ -30,10 +30,6 @@ $total_spare_parts = $conn->query("SELECT COUNT(*) as total FROM spare_parts")->
 $total_purchase_orders = $conn->query("SELECT COUNT(*) as total FROM purchase_orders")->fetch_assoc()['total'];
 
 
-$low_stock_query = $conn->query("SELECT name, stock_qty, min_stock FROM spare_parts WHERE stock_qty <= min_stock");
-$has_low_stock = $low_stock_query->num_rows > 0;
-
-
 $recent_sales_query = $conn->query("
     SELECT so.salesorders_id, u.username AS user, so.order_date, so.total_amount, so.payment_method 
     FROM sales_orders so 
@@ -54,21 +50,6 @@ $recent_purchase_query = $conn->query("
     LIMIT 5
 ");
 
-
-$chart_query = $conn->query("
-    SELECT DATE_FORMAT(order_date, '%b %Y') as month_name, SUM(total_amount) as total 
-    FROM sales_orders 
-    GROUP BY DATE_FORMAT(order_date, '%Y-%m'), DATE_FORMAT(order_date, '%b %Y') 
-    ORDER BY DATE_FORMAT(order_date, '%Y-%m') ASC 
-    LIMIT 6
-");
-
-$chart_labels = [];
-$chart_data = [];
-while ($row = $chart_query->fetch_assoc()) {
-    $chart_labels[] = $row['month_name'];
-    $chart_data[] = $row['total'];
-}
 ?>
 <!DOCTYPE html>
 <html lang="id">
@@ -172,25 +153,6 @@ while ($row = $chart_query->fetch_assoc()) {
             <p class="text-sm text-slate-500">Ringkasan operasional sistem pasok suku cadang, data inventaris, dan
                 peringatan stok.</p>
         </div>
-
-        <?php if ($has_low_stock): ?>
-            <div class="bg-red-50 border-l-4 border-red-500 p-4 mb-8 rounded-r-lg shadow-sm">
-                <div class="flex items-center gap-2 mb-2">
-                    <span class="material-symbols-outlined text-red-600">warning</span>
-                    <h3 class="text-red-800 font-bold">Peringatan: Stok Suku Cadang Menipis! Segera Lakukan
-                        Restock.</h3>
-                </div>
-                <ul class="list-disc list-inside text-sm text-red-700 ml-2">
-                    <?php while ($item = $low_stock_query->fetch_assoc()): ?>
-                        <li>
-                            <strong><?= htmlspecialchars($item['name']) ?></strong>
-                            sisa stok: <?= $item['stock_qty'] ?> (Minimum: <?= $item['min_stock'] ?>) - <em>Perlu
-                                Restock!</em>
-                        </li>
-                    <?php endwhile; ?>
-                </ul>
-            </div>
-        <?php endif; ?>
 
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
             <div class="bg-white p-6 rounded-lg border border-gray-200 shadow-sm flex flex-col">

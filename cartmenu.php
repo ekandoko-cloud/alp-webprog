@@ -8,9 +8,21 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 
+$host = "localhost";
+$user = "root";
+$password = "";
+$database = "industrialhub";
+
+$conn = new mysqli($host, $user, $password, $database);
+
+if ($conn->connect_error) {
+    die("Koneksi gagal: " . $conn->connect_error);
+}
+
 $logged_in = isset($_SESSION['user_id']);
 $username  = $logged_in ? $_SESSION['username'] : '';
 $email     = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '') : '';
+
 
 $user_id = (int) $_SESSION['user_id'];
 $message = '';
